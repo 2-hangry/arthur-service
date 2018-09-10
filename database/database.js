@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const data = require('../database/database.js');
 const fs = require('fs');
 const path = require('path');
 const promise = require('bluebird');
@@ -99,4 +98,27 @@ let restaurantSchema = {   "id": {type:Number, unique: true},
 
 let restaurant = mongoose.model('restaurant', restaurantSchema);
 
-console.log(data.readFile)
+let saveEverything = () => {
+    readFile(rawPath, 'utf8').then((contents) => {
+        let jsonArr = JSON.parse(contents);
+        for(var i = 0; i < jsonArr.length; i++) {
+            let rest = new restaurant(jsonArr[i]);
+            rest.save((err) => {
+                console.log(err, ' there was an error');
+            });
+        };
+    });
+}
+
+let findRestaurant = (req, res) => {
+  let restaurantID = Number(req.params.id);
+  restaurant.findOne({id:restaurantID}, (err, restaurantInfo) => {
+    if (err) {
+      res.status(500).send(' There was an err, ', err)
+    } else {
+      res.send(restaurantInfo);
+    }
+  });
+};
+
+module.exports.findRestaurant = findRestaurant;

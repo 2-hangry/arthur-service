@@ -104,7 +104,7 @@ let dataGen = (int) => {
     return dataArr;
 }
 
-let restaurantJSON = dataGen(10);
+let restaurantJSON = dataGen(100);
 restaurantJSON = JSON.stringify(restaurantJSON);
 
 let writeFileSync = promise.promisify(fs.writeFileSync);
