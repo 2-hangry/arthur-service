@@ -67,14 +67,15 @@ class RestaurantInfo extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const context = this;
-    axios.get("/restaurantInfo/3").then(function(response) {
-      context.setState({
-        restaurant: response.data
-      });
-    });
-  }
+  // componentDidMount() {
+  //   const context = this;
+  //   axios.get("/restaurantInfo/3").then(function(response) {
+  //     context.setState({
+  //       restaurant: response.data
+  //     });
+  //   });
+  // }
+
   render() {
     return (
       <div>
