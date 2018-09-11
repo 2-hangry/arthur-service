@@ -97,7 +97,6 @@ let dataGen = (int) => {
   let dataArr = [];
   let rest = null;
   for (var i = 0; i < int; i++) {
-    // rest = createRestObj(i);
     dataArr.push(createRestObj(i));
   }
   return dataArr;
