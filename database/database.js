@@ -8,7 +8,7 @@ let readFile = promise.promisify(fs.readFile);
 
 mongoose.connect('mongodb://student:student1@ds149742.mlab.com:49742/restaurants');
 
-let restaurantSchema = { 'id': {type: Number, unique: true},
+let restaurantSchema = {'id': {type: Number, unique: true},
   'name': {type: String},
   'url': {type: String},
   'price': {type: String},
@@ -108,6 +108,7 @@ let saveEverything = () => {
       });
     }
   });
+  //async function call
 };
 
 //uncomment the function below and run the file in order to populate the database
@@ -122,7 +123,6 @@ let findRestaurant = (req, res) => {
       res.send(restaurantInfo);
     }
   });
-  //async function call
 };
 
 module.exports.findRestaurant = findRestaurant;
