@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import ReactDOM from "react-dom";
 import Hours from "./Hours.jsx";
+import MoreInfo from "./MoreInfo.jsx";
 
 class RestaurantInfo extends React.Component {
   constructor(props) {
@@ -82,6 +83,7 @@ class RestaurantInfo extends React.Component {
         <Hours
           hours={this.state.restaurant ? this.state.restaurant.hours[0] : null}
         />
+        <MoreInfo moreInfo={this.state.restaurant}/>
       </div>
     );
   }
