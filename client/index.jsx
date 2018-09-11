@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import RestaurantInfo from './Components/restaurantInfo.jsx'
 
-ReactDOM.render(<div>Hello World</div>, document.getElementById('app'));
+ReactDOM.render(<RestaurantInfo />, document.getElementById('app'));
