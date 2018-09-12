@@ -43,7 +43,6 @@ class RestaurantInfo extends React.Component {
           <BasicInfo businessHours={this.state.restaurant.hours[0]}/>
           <Hours
             hours={this.state.restaurant ? this.state.restaurant.hours[0] : null}
-          
           />
           <MoreInfo moreInfo={this.state.restaurant}/>
         </div>
