@@ -100,33 +100,26 @@ let restaurant = mongoose.model('restaurant', restaurantSchema);
 
 
 //reads the created restaurant file
-//manually run the function in order to push all objects into the mongo database
+
 let saveEverything = () => {
   readFile(rawPath, 'utf8').then((contents) => {
     let jsonArr = JSON.parse(contents);
     for (var i = 0; i < jsonArr.length; i++) {
       let rest = new restaurant(jsonArr[i]);
       rest.save((err) => {
-        console.log(err, ' there was an error');
+        if (err) {
+          console.log(err, ' there was an error');
+        }
       });
     }
   });
-  //asynchronous call
-};
-
-//uncomment the function and run in order to populate the database
-// saveEverything();
-
-let findRestaurant = (req, res) => {
-  let restaurantID = Number(req.params.id);
-  restaurant.findOne({id: restaurantID}, (err, restaurantInfo) => {
-    if (err) {
-      res.status(500).send(' There was an err, ', err);
-    } else {
-      res.send(restaurantInfo);
-    }
-  });
 };
 
 
+
+let findRestaurant = (restaurantID, callback) => {
+  restaurant.findOne({id: restaurantID}, callback);
+};
+
+module.exports.saveEverything = saveEverything;
 module.exports.findRestaurant = findRestaurant;

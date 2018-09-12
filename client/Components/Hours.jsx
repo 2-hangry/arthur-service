@@ -1,5 +1,5 @@
 import React from "react";
-import Day from "./Day.jsx";
+import Day from "./DailyHours.jsx";
 const divStyle = {
   color: "red",
   fontFamily: "sans-serif",

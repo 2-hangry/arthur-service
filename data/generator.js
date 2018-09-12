@@ -1,6 +1,8 @@
 const faker = require('faker');
 const fs = require('fs');
 const path = require('path');
+const promise = require('bluebird');
+const db = require("../database/database.js");
 
 let createRestObj = (i) => {
   let restObj = { 'id': i,
@@ -104,9 +106,12 @@ let dataGen = (int) => {
 
 let restaurantJSON = dataGen(100);
 restaurantJSON = JSON.stringify(restaurantJSON);
+let writeFile = promise.promisify(fs.writeFileSync);
 
-fs.writeFileSync('restaurant.txt', restaurantJSON, 'UTF8', (err) => {
+writeFile('restaurant.txt', restaurantJSON, 'UTF8', (err) => {
   if (err) {
     console.log(' there was an err beitch', err);
+  } else {
+    console.log('complete creation');
   }
-});
+}).then(db.saveEverything());

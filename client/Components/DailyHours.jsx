@@ -9,7 +9,7 @@ const fontStyle = {
   textAlign: 'left'
 };
 
-class Day extends React.Component {
+class DailyHours extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,4 +52,4 @@ class Day extends React.Component {
   }
 }
 
-export default Day;
+export default DailyHours;
