@@ -1,10 +1,15 @@
 import React from "react";
 import Day from "./Day.jsx";
+const divStyle = {
+  color: "red",
+  fontFamily: "sans-serif",
+  fontSize: 14+'px'
+};
 
 const Hours = props => {
   return (
     <div>
-      <h3>Hours</h3>
+      <h3 style={divStyle}>Hours</h3>
       <table>
         <tbody>
           {props.hours.open.map(day => {

@@ -3,6 +3,12 @@ import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 const moment = extendMoment(Moment);
 
+const fontStyle = {
+  fontSize: 14+'px',
+  fontFamily: 'sans-serif',
+  textAlign: 'left'
+};
+
 class Day extends React.Component {
   constructor(props) {
     super(props);
@@ -17,9 +23,9 @@ class Day extends React.Component {
   componentDidMount() {
     const week = {
       0: "Mon",
-      1: "Tues",
+      1: "Tue",
       2: "Wed",
-      3: "Thurs",
+      3: "Thu",
       4: "Fri",
       5: "Sat",
       6: "Sun"
@@ -38,7 +44,7 @@ class Day extends React.Component {
   render() {
 
     return (
-      <tr>
+      <tr style={fontStyle}>
         <th>{this.state.day}</th>
         <td>{this.state.hours}</td>
       </tr>
