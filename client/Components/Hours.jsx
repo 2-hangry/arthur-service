@@ -1,5 +1,5 @@
 import React from "react";
-import Day from "./DailyHours.jsx";
+import DailyHours from "./DailyHours.jsx";
 const divStyle = {
   color: "red",
   fontFamily: "sans-serif",
@@ -13,7 +13,7 @@ const Hours = props => {
       <table>
         <tbody>
           {props.hours.open.map(day => {
-            return <Day day={day} />;
+            return <DailyHours day={day} />;
           })}
         </tbody>
       </table>

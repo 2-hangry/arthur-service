@@ -14,13 +14,12 @@ class DailyHours extends React.Component {
     super(props);
     this.state = {
       day: null,
-      hours: "",
-      openNow: false
+      hours: null
     };
   }
 
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
     const week = {
       0: "Mon",
       1: "Tue",
@@ -31,18 +30,40 @@ class DailyHours extends React.Component {
       6: "Sun"
     };
     let day = week[this.props.day.day];
-    let start = (Math.floor(this.props.day.start / 100) * 100).toString();
-    let end = (Math.floor(this.props.day.end / 100) * 100).toString();
-    start = moment(start.slice(0, -2) + ":" + start.slice(-2), 'HH:mm a').format('hh:mm a');
-    end = moment(end.slice(0, -2) + ":" + end.slice(-2), 'HH:mm a').format('hh:mm a');
-    this.setState({
-      day: day,
-      hours: start + ' - ' + end
-    });
+    const start = moment((Math.floor(this.props.day.start)/100), 'HH').format('hh:mm a');
+    const end = moment((Math.floor(this.props.day.end)/100), 'HH').format('hh:mm a');
+    let hours = start + ' - ' + end;
+    if (hours !== this.state.hours) {
+      this.setState({
+        day: day,
+        hours: hours
+      });
+    }
   }
 
-  render() {
+  componentWillMount() {
+    const week = {
+      0: "Mon",
+      1: "Tue",
+      2: "Wed",
+      3: "Thu",
+      4: "Fri",
+      5: "Sat",
+      6: "Sun"
+    };
+    let day = week[this.props.day.day];
+    const start = moment((Math.floor(this.props.day.start)/100), 'HH').format('hh:mm a');
+    const end = moment((Math.floor(this.props.day.end)/100), 'HH').format('hh:mm a');
+    let hours = start + ' - ' + end;
+    this.setState({
+      day: day,
+      hours: hours
+    });
 
+  }
+
+
+  render() {
     return (
       <tr style={fontStyle}>
         <th>{this.state.day}</th>
