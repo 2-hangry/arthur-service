@@ -64,9 +64,11 @@ class RestaurantInfo extends React.Component {
           Caters: true,
           "Gender Neutral Restroom": false
         }
-      }
+      },
+      searchRequest: null
     };
   }
+
 
   // componentDidMount() {
   //   const context = this;
@@ -80,6 +82,7 @@ class RestaurantInfo extends React.Component {
   render() {
     return (
       <div>
+        <Search />
         <Hours
           hours={this.state.restaurant ? this.state.restaurant.hours[0] : null}
         />
