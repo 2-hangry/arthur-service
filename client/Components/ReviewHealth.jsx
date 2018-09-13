@@ -4,14 +4,11 @@ import Modal from "react-modal";
 Modal.setAppElement("#app");
 
 class ReviewHealth extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false
     };
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   handleOpenModal() {
@@ -25,12 +22,11 @@ class ReviewHealth extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleOpenModal}>Trigger Modal</button>
+        <button onClick={ this.handleOpenModal.bind(this) }>Trigger Modal</button>
         <Modal
-          isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          isOpen={ this.state.showModal }
         >
-          <button onClick={this.handleCloseModal}>Close Modal</button>
+          <button onClick={ this.handleCloseModal.bind(this) }>Close Modal</button>
         </Modal>
       </div>
     );

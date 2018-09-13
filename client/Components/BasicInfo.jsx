@@ -16,8 +16,8 @@ const BasicInfo = props => {
   return (
     <div>
       <span>
-        <img src={require("../tinyClock.png")} style={imageStyle} />
-        <span>Today {start} - {end}</span>
+        <img src={ require("../tinyClock.png") } style={ imageStyle } />
+        <span>Today { start } - { end }</span>
       </span>
       <ReviewHealth />
     </div>
