@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "data-gen": "data/generator.js",
+    "data-gen": "node ./data/generator.js",
     "web-config": "webpack -d --watch"
   },
   "dependencies": {

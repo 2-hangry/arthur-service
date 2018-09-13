@@ -22,11 +22,11 @@ class ReviewHealth extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={ this.handleOpenModal.bind(this) }>Trigger Modal</button>
+        <button onClick={ this.handleOpenModal.bind(this) }>ReviewRating</button>
         <Modal
           isOpen={ this.state.showModal }
         >
-          <button onClick={ this.handleCloseModal.bind(this) }>Close Modal</button>
+          <button onClick={ this.handleCloseModal.bind(this) }>Close</button>
         </Modal>
       </div>
     );
