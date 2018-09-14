@@ -3,6 +3,17 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#app");
 
+const textStyle = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
 class ReviewHealth extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +25,17 @@ class ReviewHealth extends React.Component {
         3: 'Take A Chance, Columbus Did!',
         4: 'Go!! Don\'t Forget To Instagram Like The Rest Of The Sheeple',
         5: 'I Bet This Place Paid For Elites To Rate Them!'
-      }
+      },
+      rating: Math.floor(this.props.rating)
     };
   }
 
   handleOpenModal() {
-    this.setState({ showModal: true });
+    this.setState({ 
+      showModal: true,
+      rating: Math.floor(this.props.rating)
+    
+    });
   }
 
   handleCloseModal() {
@@ -31,9 +47,10 @@ class ReviewHealth extends React.Component {
     return (
       <div>
         <button onClick={this.handleOpenModal.bind(this)}>ReviewRating</button>
-        <Modal isOpen={this.state.showModal}>
-          <p>{this.props.rating}</p>
+        <Modal isOpen={this.state.showModal} style={textStyle}>
           <button onClick={this.handleCloseModal.bind(this)}>Close</button>
+          <p >{this.state.ratingsComparator[this.state.rating]}</p>
+          <p>{this.props.rating}</p>
         </Modal>
       </div>
     );
