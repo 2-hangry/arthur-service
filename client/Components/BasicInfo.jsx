@@ -3,17 +3,11 @@ import ReviewHealth from "./ReviewHealth.jsx";
 import PriceRange from "./PriceRange.jsx";
 const moment = require("moment");
 
-const imageStyle = {
-  width: 25,
-  height: 25
-};
+const imageStyle = { width: 25, height: 25 };
 
-const textStyle = {
-  marginTop: 8,
-  marginLeft: 7,
-  fontSize: 14,
-  fontFamily: "sans-serif"
-};
+const textStyle = { fontSize: 14, fontFamily: "sans-serif" };
+
+const hoursTodayStyling = { marginTop: 7, marginLeft: 5 };
 
 const BasicInfo = props => {
   const time = props.businessHours.open[moment().format("d") - 1];
@@ -21,16 +15,43 @@ const BasicInfo = props => {
   const end = moment(Math.floor(time.end) / 100, "HH").format("hh:mm a");
   let current = moment().format("hh:mm a");
   return (
-    <div>
+    <div style={textStyle}>
       <span style={{ display: "flex" }}>
         <img
           src="https://png.icons8.com/metro/50/27ae60/clock.png"
           style={imageStyle}
         />
-        <p style={textStyle}>
-          Today {start} - {end}
+        <p style={hoursTodayStyling}>Today</p>
+        <p style={Object.assign({ fontWeight: "bold" }, hoursTodayStyling)}>
+          {start} - {end}
         </p>
-        {end > current && start < end ? <p style={textStyle}>Open Now</p> : <p style={textStyle}>Closed Now</p>}
+        {end > current && current < end ? (
+          <p
+            style={Object.assign(
+              {
+                fontWeight: "bold",
+                color: "green"
+              },
+              hoursTodayStyling
+            )}
+          >
+            {" "}
+            Open Now
+          </p>
+        ) : (
+          <p
+            style={Object.assign(
+              {
+                fontWeight: "bold",
+                color: "red"
+              },
+              hoursTodayStyling
+            )}
+          >
+            {" "}
+            Closed Now
+          </p>
+        )}
       </span>
       <PriceRange price={props.price} />
       <ReviewHealth rating={props.rating} />

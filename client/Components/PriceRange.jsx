@@ -13,13 +13,9 @@ const dollarRangeTranslation = {
   $$$$: "above $61"
 };
 
-const dollarRangeTranslationStyinling = {
-  fontSize: 14,
-  fontFamily: "sans-serif"
-};
-
-const generalMargin = {
-  marginBottom: 8
+const textMargin = {
+  marginTop: 4,
+  marginLeft: 6
 };
 
 const PriceRange = props => {
@@ -29,14 +25,29 @@ const PriceRange = props => {
     colorArr[i] = green;
   }
   return (
-    <div style={generalMargin}>
-      {colorArr.map(dollar => {
-        const dollarString = `https://png.icons8.com/metro/50/${dollar}/us-dollar.png`;
-        return <img src={dollarString} style={img} />;
-      })}
-      <span style={dollarRangeTranslationStyinling}>
-        <span>Price Range </span>
-        <span verticalAlign="top">{dollarRangeTranslation[props.price]}</span>
+    <div>
+      <span style={{ display: "flex" }}>
+        {colorArr.map(dollar => {
+          const dollarString = `https://png.icons8.com/metro/50/${dollar}/us-dollar.png`;
+          return <img src={dollarString} style={img} />;
+        })}
+        <p
+          style={{
+            marginTop: 4,
+            marginLeft: 6
+          }}
+        >
+          Price range
+        </p>
+        <p
+          style={{
+            marginTop: 4,
+            marginLeft: 6,
+            fontWeight: 'bold'
+          }}
+        >
+          {dollarRangeTranslation[props.price]}
+        </p>
       </span>
       <a href="https://icons8.com" />
     </div>

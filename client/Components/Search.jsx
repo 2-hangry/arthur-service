@@ -4,7 +4,7 @@ const Search = props => {
   return (
     <form onSubmit={props.submit}>
       <label>
-        Name:
+        Restaurant:
         <input type="number" onChange={props.handleChange} />
       </label>
       <input type="submit" value="Submit"/>
