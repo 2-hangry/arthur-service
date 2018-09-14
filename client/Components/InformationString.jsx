@@ -1,11 +1,10 @@
 import React from "react";
 
-const fontStyle = {
+const fontBolded = {
   fontWeight: "bold"
 };
 const genStyle = {
-  fontFamily: "sans-serif",
-  fontSize: 13 + "px"
+  fontSize: 13
 };
 
 const InformationString = props => {
@@ -15,9 +14,9 @@ const InformationString = props => {
         <br />
         <span>{props.info[0]}</span>
         {props.info[1] ? (
-          <span style={fontStyle}> Yes</span>
+          <span style={fontBolded}> Yes</span>
         ) : (
-          <span style={fontStyle}> No</span>
+          <span style={fontBolded}> No</span>
         )}
       </div>
     );
@@ -26,7 +25,7 @@ const InformationString = props => {
       <div style={genStyle}>
         <br />
         <span>{props.info[0]}</span>
-        <span style={fontStyle}> {props.info[1]}</span>
+        <span style={fontBolded}> {props.info[1]}</span>
       </div>
     );
   }

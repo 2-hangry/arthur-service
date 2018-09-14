@@ -3,8 +3,7 @@ import InformationString from "./InformationString.jsx";
 
 const divStyle = {
   color: "red",
-  fontFamily: "sans-serif",
-  fontSize: 14+'px'
+  fontSize: 14
 };
 
 const MoreInfo = props => {

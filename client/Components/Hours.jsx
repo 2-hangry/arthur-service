@@ -2,8 +2,7 @@ import React from "react";
 import DailyHours from "./DailyHours.jsx";
 const divStyle = {
   color: "red",
-  fontFamily: "sans-serif",
-  fontSize: 14+'px'
+  fontSize: 14
 };
 
 const Hours = props => {
