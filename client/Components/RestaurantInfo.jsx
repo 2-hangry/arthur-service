@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
-import ReactDOM from "react-dom";
-import Hours from "./Hours.jsx";
-import MoreInfo from "./MoreInfo.jsx";
 import Search from "./Search.jsx";
-import BasicInfo from "./BasicInfo.jsx";
-import FromTheBusiness from "./FromTheBusiness.jsx";
+import BasicInfo from "./BasicInformation/BasicInfo.jsx";
+import Hours from "./HoursOfOperation/Hours.jsx";
+import MoreInfo from "./MoreBusiessInformation/MoreInfo.jsx";
+import FromTheBusiness from "./FromTheBusiness/FromTheBusiness.jsx";
 
 const fontStyle = {
   fontSize: 14,
@@ -87,5 +86,4 @@ class RestaurantInfo extends React.Component {
   }
 }
 
-// ReactDOM.render(<RestaurantInfo />, document.getElementById("app"));
 export default RestaurantInfo;

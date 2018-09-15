@@ -97,16 +97,7 @@ exports[`renders correctly 1`] = `
         <td>
           07:00 am - 09:00 pm
         </td>
-        <p
-          style={
-            Object {
-              "color": "green",
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Open Now
-        </p>
+        <p />
       </tr>
       <tr
         style={
@@ -123,7 +114,16 @@ exports[`renders correctly 1`] = `
         <td>
           07:00 am - 11:00 pm
         </td>
-        <p />
+        <p
+          style={
+            Object {
+              "color": "green",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Open Now
+        </p>
       </tr>
       <tr
         style={

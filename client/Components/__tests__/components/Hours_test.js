@@ -2,7 +2,7 @@
 import React from "react";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Hours from "../../Hours.jsx";
+import Hours from "../../HoursOfOperation/Hours.jsx";
 
 Enzyme.configure({ adapter: new Adapter() });
 import renderer from "react-test-renderer";

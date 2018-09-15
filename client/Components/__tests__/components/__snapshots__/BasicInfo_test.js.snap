@@ -40,7 +40,7 @@ exports[`renders correctly 1`] = `
     >
       07:00 am
        - 
-      09:00 pm
+      11:00 pm
     </p>
     <p
       style={
