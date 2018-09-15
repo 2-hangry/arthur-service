@@ -87,4 +87,5 @@ class RestaurantInfo extends React.Component {
   }
 }
 
-ReactDOM.render(<RestaurantInfo />, document.getElementById("app"));
+// ReactDOM.render(<RestaurantInfo />, document.getElementById("app"));
+export default RestaurantInfo;

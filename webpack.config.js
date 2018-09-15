@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + "/client/Components/restaurantInfo.jsx",
+  entry: __dirname + "/client/index.jsx",
   module: {
     rules: [
       {

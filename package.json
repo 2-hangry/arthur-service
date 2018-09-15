@@ -7,17 +7,28 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
   "scripts": {
     "start": "nodemon server/index.js",
     "data-gen": "node ./data/generator.js",
-    "web-config": "webpack -d --watch"
+    "web-config": "webpack -d --watch",
+    "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/react"
+    ]
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
-    "babel-loader": "^8.0.2",
+    "babel-loader": "^8.0.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "eslint": "^5.5.0",
@@ -32,8 +43,17 @@
     "webpack": "^4.18.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "babel-7-jest": "^21.3.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-15": "^1.1.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "file-loader": "^2.0.0",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.5.1",
     "webpack-cli": "^3.1.0"
   }
 }
