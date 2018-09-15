@@ -1,0 +1,504 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "color": "red",
+        "fontSize": 14,
+      }
+    }
+  >
+    More business info
+  </h3>
+  <div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Accepts Apple Pay
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Accepts Credit Cards
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Accepts Google Pay
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Alcohol
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Attire Casual
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         
+        sloppy
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Bike Parking
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Caters
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Delivery
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Gender Neutral Restroom
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Good For
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         
+        breakfast
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Good for Groups
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Good for Kids
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Has Soy-free Options
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Has TV
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Liked by Vegetarians
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Noise Level Average
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         
+        loud
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Outdoor Seating
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         Yes
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Parking Street
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Take-out
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Takes Reservations
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Waiter Service
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Wheelchair Accessible
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": 13,
+        }
+      }
+    >
+      <br />
+      <span>
+        Wi-Fi
+      </span>
+      <span
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+         No
+      </span>
+    </div>
+  </div>
+</div>
+`;

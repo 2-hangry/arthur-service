@@ -4,10 +4,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import Search from '../../Search.jsx';
 
 Enzyme.configure({ adapter: new Adapter() });
+import renderer from 'react-test-renderer';
 
-describe('restaurant Suite', function() {
-  it('should render without crashing', () => {
-    const wrapper = shallow(<Search />)
-    expect(wrapper.exists()).toEqual(true);
-  });
+it('renders correctly', () => {
+  const tree = renderer
+    .create(<Search />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
