@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h3
+    style={
+      Object {
+        "color": "red",
+        "fontSize": 14,
+      }
+    }
+  >
+    Hours
+  </h3>
+  <table>
+    <tbody>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Mon
+        </th>
+        <td>
+          08:00 am - 08:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Tue
+        </th>
+        <td>
+          07:00 am - 09:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Wed
+        </th>
+        <td>
+          07:00 am - 11:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Thu
+        </th>
+        <td>
+          03:00 am - 04:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Fri
+        </th>
+        <td>
+          07:00 am - 09:00 pm
+        </td>
+        <p
+          style={
+            Object {
+              "color": "green",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Open Now
+        </p>
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Sat
+        </th>
+        <td>
+          07:00 am - 11:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": "14px",
+            "textAlign": "left",
+          }
+        }
+      >
+        <th>
+          Sun
+        </th>
+        <td>
+          03:00 am - 04:00 pm
+        </td>
+        <p />
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <span
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <img
+      src="https://png.icons8.com/metro/50/27ae60/clock.png"
+      style={
+        Object {
+          "height": 28,
+          "width": 28,
+        }
+      }
+    />
+    <p
+      style={
+        Object {
+          "marginLeft": 5,
+          "marginTop": 7,
+        }
+      }
+    >
+       
+      Today
+    </p>
+    <p
+      style={
+        Object {
+          "fontWeight": "bold",
+          "marginLeft": 5,
+          "marginTop": 7,
+        }
+      }
+    >
+      07:00 am
+       - 
+      09:00 pm
+    </p>
+    <p
+      style={
+        Object {
+          "color": "green",
+          "fontWeight": "bold",
+          "marginLeft": 5,
+          "marginTop": 7,
+        }
+      }
+    >
+       
+      Open Now
+    </p>
+  </span>
+  <hr
+    style={
+      Object {
+        "marginLeft": "11%",
+        "marginRight": "2%",
+      }
+    }
+  />
+  <div>
+    <span
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <img
+        src="https://png.icons8.com/metro/50/27ae60/us-dollar.png"
+        style={
+          Object {
+            "height": 18,
+            "mode": "fit",
+            "width": 17,
+          }
+        }
+      />
+      <img
+        src="https://png.icons8.com/metro/50/27ae60/us-dollar.png"
+        style={
+          Object {
+            "height": 18,
+            "mode": "fit",
+            "width": 17,
+          }
+        }
+      />
+      <img
+        src="https://png.icons8.com/metro/50/27ae60/us-dollar.png"
+        style={
+          Object {
+            "height": 18,
+            "mode": "fit",
+            "width": 17,
+          }
+        }
+      />
+      <img
+        src="https://png.icons8.com/metro/50/27ae60/us-dollar.png"
+        style={
+          Object {
+            "height": 18,
+            "mode": "fit",
+            "width": 17,
+          }
+        }
+      />
+      <p
+        style={
+          Object {
+            "marginLeft": 6,
+            "marginTop": 4,
+          }
+        }
+      >
+        Price range
+      </p>
+      <p
+        style={
+          Object {
+            "fontWeight": "bold",
+            "marginLeft": 6,
+            "marginTop": 4,
+          }
+        }
+      >
+        above $61
+      </p>
+    </span>
+    <a
+      href="https://icons8.com"
+    />
+  </div>
+  <hr
+    style={
+      Object {
+        "marginLeft": "11%",
+        "marginRight": "2%",
+      }
+    }
+  />
+  <div>
+    <a
+      onClick={[Function]}
+    >
+      Review Health
+    </a>
+  </div>
+  <a
+    href="https://icons8.com"
+  />
+</div>
+`;
