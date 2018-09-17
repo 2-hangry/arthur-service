@@ -1,14 +1,11 @@
 import React from "react";
 import DailyHours from "./DailyHours.jsx";
-const divStyle = {
-  color: "red",
-  fontSize: 14
-};
+import styles from '../../styles.css.js';
 
 const Hours = props => {
   return (
     <div>
-      <h3 style={divStyle}>Hours</h3>
+      <p style={styles.sectionTitle}>Hours</p>
       <table>
         <tbody>
           {props.hours.open.map(day => {
@@ -16,6 +13,10 @@ const Hours = props => {
           })}
         </tbody>
       </table>
+      <span>
+          <img style={styles.editInfoPencil} src="https://png.icons8.com/ios/50/2e6d97/edit.png"></img>
+          <a href="https://www.yelp.com" style={styles.editInfoStyling}>Edit business info</a>
+      </span>
     </div>
   );
 };

@@ -1,21 +1,11 @@
 import React from "react";
-
-const img = {
-  width: 17,
-  height: 18,
-  mode: "fit"
-};
+import styles from '../../styles.css.js';
 
 const dollarRangeTranslation = {
   $: "under $10",
   $$: "$11-30",
   $$$: "$31-60",
   $$$$: "above $61"
-};
-
-const textMargin = {
-  marginTop: 4,
-  marginLeft: 6
 };
 
 const PriceRange = props => {
@@ -29,22 +19,15 @@ const PriceRange = props => {
       <span style={{ display: "flex" }}>
         {colorArr.map(dollar => {
           const dollarString = `https://png.icons8.com/metro/50/${dollar}/us-dollar.png`;
-          return <img src={dollarString} style={img} />;
+          return <img src={dollarString} style={styles.img} />;
         })}
         <p
-          style={{
-            marginTop: 4,
-            marginLeft: 6
-          }}
+          style={styles.textMargin}
         >
           Price range
         </p>
         <p
-          style={{
-            marginTop: 4,
-            marginLeft: 6,
-            fontWeight: 'bold'
-          }}
+          style={Object.assign({fontWeight: 'bold'},styles.textMargin)}
         >
           {dollarRangeTranslation[props.price]}
         </p>

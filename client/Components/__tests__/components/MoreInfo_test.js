@@ -4,7 +4,7 @@
 import React from "react";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import MoreInfo from "../../MoreBusiessInformation/MoreInfo.jsx";
+import MoreInfo from "../../MoreBusinessInformation/MoreInfo.jsx";
 
 Enzyme.configure({ adapter: new Adapter() });
 import renderer from "react-test-renderer";

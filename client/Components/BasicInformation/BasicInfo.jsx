@@ -13,11 +13,12 @@ const BasicInfo = props => {
   const start = moment(Math.floor(time.start) / 100, "HH").format("hh:mm a");
   const end = moment(Math.floor(time.end) / 100, "HH").format("hh:mm a");
   let current = moment().format("hh:mm a");
-  
+
+
   return (
     <div>
       <span style={{ display: "flex" }}>
-        {end > current && current < end ? (
+        {moment(current, "hh:mm a").isBetween(moment(start, "hh:mm a"), moment(end, "hh:mm a")) ? (
           <img
             src="https://png.icons8.com/metro/50/27ae60/clock.png"
             style={imageStyle}
@@ -32,7 +33,7 @@ const BasicInfo = props => {
         <p style={Object.assign({ fontWeight: "bold" }, hoursTodayStyling)}>
           {start} - {end}
         </p>
-        {end > current && current < end ? (
+        {moment(current, "hh:mm a").isBetween(moment(start, "hh:mm a"), moment(end, "hh:mm a")) ? (
           <p
             style={Object.assign(
               {

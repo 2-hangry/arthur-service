@@ -3,22 +3,9 @@ import axios from "axios";
 import Search from "./Search.jsx";
 import BasicInfo from "./BasicInformation/BasicInfo.jsx";
 import Hours from "./HoursOfOperation/Hours.jsx";
-import MoreInfo from "./MoreBusiessInformation/MoreInfo.jsx";
+import MoreInfo from "./MoreBusinessInformation/MoreInfo.jsx";
 import FromTheBusiness from "./FromTheBusiness/FromTheBusiness.jsx";
-
-const fontStyle = {
-  fontSize: 14,
-  fontFamily: "sans-serif"
-};
-
-const basicBorder = {
-  borderColor: "#cacad0",
-  borderWidth: "thin",
-  borderStyle: "solid",
-  padding: 3,
-  maxWidth: 300,
-  borderRadius: 3
-};
+import styles from '../styles.css.js';
 
 class RestaurantInfo extends React.Component {
   constructor(props) {
@@ -49,6 +36,20 @@ class RestaurantInfo extends React.Component {
       });
   }
 
+  componentDidMount () {
+    const context = this;
+    axios
+      .get(`/restaurantInfo/${0}`)
+      .then(function(response) {
+        if (response.data !== "") {
+          context.setState({
+            restaurant: response.data
+          });
+        }
+      });
+  }
+
+
   render() {
     if (this.state.restaurant === null) {
       return (
@@ -59,12 +60,12 @@ class RestaurantInfo extends React.Component {
       );
     } else {
       return (
-        <div style={fontStyle}>
+        <div style={Object.assign({float: 'right'}, styles.generalFontFormat)}>
           <Search
             handleChange={this.handleChange.bind(this)}
             submit={this.formSubmit.bind(this)}
           />
-          <div style={basicBorder}>
+          <div style={styles.basicBorder}>
             <BasicInfo
               businessHours={this.state.restaurant.hours[0]}
               price={this.state.restaurant.price}
@@ -76,9 +77,10 @@ class RestaurantInfo extends React.Component {
               this.state.restaurant ? this.state.restaurant.hours[0] : null
             }
           />
-          <MoreInfo moreInfo={this.state.restaurant} />
+          <MoreInfo moreInfo={this.state.restaurant.more_info} />
           <FromTheBusiness
             fromBusiness={this.state.restaurant["From the Business"]}
+            restaurantName={this.state.restaurant.name}
           />
         </div>
       );

@@ -1,13 +1,9 @@
 import React from "react";
 import Moment from "moment";
 import { extendMoment } from "moment-range";
+import styles from '../../styles.css.js';
 const moment = extendMoment(Moment);
 
-const fontStyle = {
-  fontSize: 14 + "px",
-  fontFamily: "sans-serif",
-  textAlign: "left"
-};
 
 const DailyHours = props => {
   const week = {
@@ -28,11 +24,11 @@ const DailyHours = props => {
   let hours = start + " - " + end;
 
   return (
-    <tr style={fontStyle}>
-      <th>{day}</th>
+    <tr style={ styles.generalFontFormat }>
+      <th style={styles.alignDay}>{day}</th>
       <td>{hours}</td>
-      {end > current && current < end && props.day.day === Number(moment().format('d'))-1 ? (
-        <p style={{fontWeight: 'bold', color: 'green'}}>Open Now</p>
+      {moment(current, "hh:mm a").isBetween(moment(start, "hh:mm a"), moment(end, "hh:mm a")) && props.day.day === Number(moment().format('d'))-1 ? (
+        <p style={styles.openNowStyling}>Open Now</p>
       ) : (
         <p />
       )}
