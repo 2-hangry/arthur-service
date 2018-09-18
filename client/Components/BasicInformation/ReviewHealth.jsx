@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import styles from '../../styles.css.js';
+import styles from '../../styles.css';
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#restaurantInfoApp');
 
@@ -29,6 +29,7 @@ const Button = styled.button`
 class ReviewHealth extends React.Component {
   constructor(props) {
     super(props);
+    const { rating } = this.props;
     this.state = {
       showModal: false,
       ratingsComparator: {
@@ -38,7 +39,7 @@ class ReviewHealth extends React.Component {
         4: "Go!! Don't Forget To Instagram Like The Rest Of The Sheeple",
         5: 'I Bet This Place Paid For Elites To Rate Them!',
       },
-      rating: Math.floor(this.props.rating),
+      rating: Math.floor(rating),
       linkHover: false,
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -56,18 +57,23 @@ class ReviewHealth extends React.Component {
   }
 
   handleOpenModal() {
+    const { rating } = this.props;
     this.setState({
       showModal: true,
-      rating: Math.floor(this.props.rating),
+      rating: Math.floor(rating),
     });
   }
 
   render() {
+    const { propsRating } = this.props;
+    const {
+      showModal, linkHover, ratingsComparator, rating,
+    } = this.state;
     return (
       <div>
         <Button
           style={
-            this.state.linkHover
+            linkHover
               ? Object.assign({ textDecorationLine: 'underline' }, styles.reviewLinkStyling)
               : styles.reviewLinkStyling
           }
@@ -79,14 +85,14 @@ class ReviewHealth extends React.Component {
         </Button>
         <Modal
           style={styles.modalStyling}
-          isOpen={this.state.showModal}
+          isOpen={showModal}
           onRequestClose={this.handleCloseModal}
         >
           <Title>Restauant Review Health</Title>
           <hr />
           <div style={styles.fontBolded}>
-            <p>{this.state.ratingsComparator[this.state.rating]}</p>
-            <p>{this.props.rating}</p>
+            <p>{ratingsComparator[rating]}</p>
+            <p>{propsRating}</p>
           </div>
           <Button onClick={this.handleCloseModal}>Close</Button>
         </Modal>

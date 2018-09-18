@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import Search from './Search.jsx';
-import BasicInfo from './BasicInformation/BasicInfo.jsx';
-import Hours from './HoursOfOperation/Hours.jsx';
-import MoreInfo from './MoreBusinessInformation/MoreInfo.jsx';
-import FromTheBusiness from './FromTheBusiness/FromTheBusiness.jsx';
-import styles from '../styles.css.js';
+import Search from './Search';
+import BasicInfo from './BasicInformation/BasicInfo';
+import Hours from './HoursOfOperation/Hours';
+import MoreInfo from './MoreBusinessInformation/MoreInfo';
+import FromTheBusiness from './FromTheBusiness/FromTheBusiness';
+import styles from '../styles.css';
 
 class RestaurantInfo extends React.Component {
   constructor(props) {
@@ -32,8 +32,9 @@ class RestaurantInfo extends React.Component {
 
   formSubmit(e) {
     e.preventDefault();
+    const { searchRequest } = this.state;
     const context = this;
-    axios.get(`/restaurantInfo/${this.state.searchRequest}`).then((response) => {
+    axios.get(`/restaurantInfo/${searchRequest}`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
@@ -49,7 +50,8 @@ class RestaurantInfo extends React.Component {
   }
 
   render() {
-    if (this.state.restaurant === null) {
+    const { restaurant } = this.state;
+    if (restaurant === null) {
       return <Search handleChange={this.handleChange} submit={this.formSubmit} />;
     }
     return (
@@ -57,17 +59,18 @@ class RestaurantInfo extends React.Component {
         <Search handleChange={this.handleChange} submit={this.formSubmit} />
         <div style={styles.basicBorder}>
           <BasicInfo
-            businessHours={this.state.restaurant.hours[0]}
-            price={this.state.restaurant.price}
-            rating={this.state.restaurant.rating}
+            businessHours={restaurant.hours[0]}
+            price={restaurant.price}
+            rating={restaurant.rating}
           />
         </div>
-        <Hours hours={this.state.restaurant ? this.state.restaurant.hours[0] : null} />
-        <MoreInfo moreInfo={this.state.restaurant.more_info} />
+        <Hours hours={restaurant ? restaurant.hours[0] : null} />
+        <MoreInfo moreInfo={restaurant.more_info} />
         <FromTheBusiness
-          fromBusiness={this.state.restaurant['From the Business']}
-          restaurantName={this.state.restaurant.name}
+          fromBusiness={restaurant['From the Business']}
+          restaurantName={restaurant.name}
         />
+        <a href="https://icons8.com">.</a>
       </div>
     );
   }

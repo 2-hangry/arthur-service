@@ -1,14 +1,17 @@
 import React from 'react';
-import InformationString from './InformationString.jsx';
-import styles from '../../styles.css.js';
+import InformationString from './InformationString';
+import styles from '../../styles.css';
 
 const MoreInfo = (props) => {
-  const infoArr = Object.entries(props.moreInfo);
+  const { moreInfo } = props;
+  const infoArr = Object.entries(moreInfo);
   return (
     <div>
       <p style={styles.sectionTitle}>More Business Info</p>
       <div>
-        {infoArr.map(info => <InformationString info={info} />)}
+        {infoArr.map(info => (
+          <InformationString info={info} />
+        ))}
       </div>
     </div>
   );

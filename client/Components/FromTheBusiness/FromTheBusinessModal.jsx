@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import styles from '../../styles.css.js';
+import styles from '../../styles.css';
 
 // --------------Modal Styling----------------------------------------------------------------------
 const Title = styled.p`
@@ -67,11 +67,13 @@ class BusinessModal extends React.Component {
   }
 
   render() {
+    const { linkHover, showModal } = this.state;
+    const { restaurantInfo, restaurantName } = this.props;
     return (
       <div>
         <Button
           style={
-            this.state.linkHover
+            linkHover
               ? Object.assign({ textDecorationLine: 'underline' }, styles.editInfoStyling)
               : styles.editInfoStyling
           }
@@ -81,17 +83,17 @@ class BusinessModal extends React.Component {
         >
           Learn more about
           {' '}
-          {this.props.restaurantName}
+          {restaurantName}
         </Button>
 
         <Modal
           style={styles.modalStyling}
-          isOpen={this.state.showModal}
+          isOpen={showModal}
           onRequestClose={this.handleCloseModal}
         >
           <Title>From the business</Title>
           <hr />
-          <div>{this.props.restaurantInfo}</div>
+          <div>{restaurantInfo}</div>
           <Button onClick={this.handleCloseModal}>Close</Button>
           <Flag src="https://png.icons8.com/ios/50/666666/flag-filled.png" />
         </Modal>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles.css.js';
+import styles from '../../styles.css';
 
 const dollarRangeTranslation = {
   $: 'under $10',
@@ -9,9 +9,10 @@ const dollarRangeTranslation = {
 };
 
 const PriceRange = (props) => {
+  const { price } = props;
   const green = '27ae60';
   const colorArr = ['cccccc', 'cccccc', 'cccccc', 'cccccc'];
-  for (let i = 0; i < props.price.length; i += 1) {
+  for (let i = 0; i < price.length; i += 1) {
     colorArr[i] = green;
   }
   return (
@@ -23,10 +24,9 @@ const PriceRange = (props) => {
         })}
         <p style={styles.textMargin}>Price range</p>
         <p style={Object.assign({ fontWeight: 'bold' }, styles.textMargin)}>
-          {dollarRangeTranslation[props.price]}
+          {dollarRangeTranslation[price]}
         </p>
       </span>
-      <a href="https://icons8.com" />
     </div>
   );
 };

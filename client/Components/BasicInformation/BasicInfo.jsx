@@ -1,12 +1,14 @@
 import React from 'react';
-import ReviewHealth from './ReviewHealth.jsx';
-import PriceRange from './PriceRange.jsx';
-import styles from '../../styles.css.js';
+import PropTypes from 'prop-types';
+import ReviewHealth from './ReviewHealth';
+import PriceRange from './PriceRange';
+import styles from '../../styles.css';
 
 const moment = require('moment');
 
 const BasicInfo = (props) => {
-  const time = props.businessHours.open[moment().format('d') - 1];
+  const { businessHours, price, rating } = props;
+  const time = businessHours.open[moment().format('d') - 1];
   const start = moment(Math.floor(time.start) / 100, 'HH').format('hh:mm a');
   const end = moment(Math.floor(time.end) / 100, 'HH').format('hh:mm a');
   const current = moment().format('hh:mm a');
@@ -49,10 +51,9 @@ const BasicInfo = (props) => {
         )}
       </span>
       <hr style={styles.horizontalRuleStyling} />
-      <PriceRange price={props.price} />
+      <PriceRange price={price} />
       <hr style={styles.horizontalRuleStyling} />
-      <ReviewHealth rating={props.rating} />
-      <a href="https://icons8.com" />
+      <ReviewHealth rating={rating} />
     </div>
   );
 };

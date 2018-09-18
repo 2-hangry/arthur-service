@@ -1,12 +1,12 @@
 module.exports = {
   entry: `${__dirname}/client/index.jsx`,
-  resolve: {
-    extensions: ['.jsx'],
-  },
   module: {
     rules: [
       {
         test: [/\.jsx$/],
+        resolve: {
+          extensions: ['.css', '*', '.js', '.jsx'],
+        },
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
