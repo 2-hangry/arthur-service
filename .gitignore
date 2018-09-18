@@ -24,3 +24,7 @@ coverage
 build/
 dist/
 
+# bundle js ignore
+
+client/public/bundle.js
+
