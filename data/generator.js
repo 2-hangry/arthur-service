@@ -105,7 +105,7 @@ const createRestObj = (i) => {
 
 const dataGen = (int) => {
   const dataArr = [];
-  const rest = null;
+
   for (let i = 0; i < int; i++) {
     dataArr.push(createRestObj(i));
   }
