@@ -1,69 +1,56 @@
-import React from "react";
-import ReviewHealth from "./ReviewHealth.jsx";
-import PriceRange from "./PriceRange.jsx";
-const moment = require("moment");
+import React from 'react';
+import ReviewHealth from './ReviewHealth.jsx';
+import PriceRange from './PriceRange.jsx';
+import styles from '../../styles.css.js';
 
-const imageStyle = { width: 28, height: 28 };
-const hoursTodayStyling = { marginTop: 7, marginLeft: 5 };
-const hrStyling = { marginLeft: 11 + "%", marginRight: 2 + "%" };
+const moment = require('moment');
 
-
-const BasicInfo = props => {
-  const time = props.businessHours.open[moment().format("d") - 1];
-  const start = moment(Math.floor(time.start) / 100, "HH").format("hh:mm a");
-  const end = moment(Math.floor(time.end) / 100, "HH").format("hh:mm a");
-  let current = moment().format("hh:mm a");
-
+const BasicInfo = (props) => {
+  const time = props.businessHours.open[moment().format('d') - 1];
+  const start = moment(Math.floor(time.start) / 100, 'HH').format('hh:mm a');
+  const end = moment(Math.floor(time.end) / 100, 'HH').format('hh:mm a');
+  const current = moment().format('hh:mm a');
 
   return (
     <div>
-      <span style={{ display: "flex" }}>
-        {moment(current, "hh:mm a").isBetween(moment(start, "hh:mm a"), moment(end, "hh:mm a")) ? (
+      <span style={{ display: 'flex' }}>
+        {moment(current, 'hh:mm a').isBetween(moment(start, 'hh:mm a'), moment(end, 'hh:mm a')) ? (
           <img
             src="https://png.icons8.com/metro/50/27ae60/clock.png"
-            style={imageStyle}
+            alt="Clock"
+            style={styles.clockStyling}
           />
         ) : (
           <img
             src="https://png.icons8.com/metro/50/fc0000/clock.png"
-            style={imageStyle}
+            alt="Clock"
+            style={styles.clockStyling}
           />
         )}
-        <p style={hoursTodayStyling}>{" "}Today</p>
-        <p style={Object.assign({ fontWeight: "bold" }, hoursTodayStyling)}>
-          {start} - {end}
+        <p style={styles.hoursTodayStyling}> Today</p>
+        <p style={Object.assign({ fontWeight: 'bold' }, styles.hoursTodayStyling)}>
+          {start}
+          {' '}
+-
+          {end}
         </p>
-        {moment(current, "hh:mm a").isBetween(moment(start, "hh:mm a"), moment(end, "hh:mm a")) ? (
+        {moment(current, 'hh:mm a').isBetween(moment(start, 'hh:mm a'), moment(end, 'hh:mm a')) ? (
           <p
-            style={Object.assign(
-              {
-                fontWeight: "bold",
-                color: "green"
-              },
-              hoursTodayStyling
-            )}
+            style={Object.assign({ fontWeight: 'bold', color: 'green' }, styles.hoursTodayStyling)}
           >
-            {" "}
+            {' '}
             Open Now
           </p>
         ) : (
-          <p
-            style={Object.assign(
-              {
-                fontWeight: "bold",
-                color: "red"
-              },
-              hoursTodayStyling
-            )}
-          >
-            {" "}
+          <p style={Object.assign({ fontWeight: 'bold', color: 'red' }, styles.hoursTodayStyling)}>
+            {' '}
             Closed Now
           </p>
         )}
       </span>
-      <hr style={hrStyling} />
+      <hr style={styles.horizontalRuleStyling} />
       <PriceRange price={props.price} />
-      <hr style={hrStyling} />
+      <hr style={styles.horizontalRuleStyling} />
       <ReviewHealth rating={props.rating} />
       <a href="https://icons8.com" />
     </div>

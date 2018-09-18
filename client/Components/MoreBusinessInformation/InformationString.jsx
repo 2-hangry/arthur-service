@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 import styles from '../../styles.css.js';
 
-
-const InformationString = props => {
-  if (typeof props.info[1] === "boolean") {
+const InformationString = (props) => {
+  if (typeof props.info[1] === 'boolean') {
     return (
       <div style={styles.moreBusinessInfoFontSize}>
         <br />
@@ -15,15 +14,17 @@ const InformationString = props => {
         )}
       </div>
     );
-  } else {
-    return (
-      <div style={styles.moreBusinessInfoFontSize}>
-        <br />
-        <span>{props.info[0]}</span>
-        <span style={styles.fontBolded}> {props.info[1]}</span>
-      </div>
-    );
   }
+  return (
+    <div style={styles.moreBusinessInfoFontSize}>
+      <br />
+      <span>{props.info[0]}</span>
+      <span style={styles.fontBolded}>
+        {' '}
+        {props.info[1]}
+      </span>
+    </div>
+  );
 };
 
 export default InformationString;

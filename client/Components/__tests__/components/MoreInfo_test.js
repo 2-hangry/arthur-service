@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 import renderer from "react-test-renderer";
 
 it("renders correctly", () => {
-    const props = {moreInfo: {more_info: {'Accepts Apple Pay':
+    const props = {moreInfo: {'Accepts Apple Pay':
         false,
         'Accepts Credit Cards':
         false,
@@ -57,8 +57,8 @@ it("renders correctly", () => {
         'Wi-Fi':
         false
       
-    }}}
-    
+    }}
+
 
   const tree = renderer.create(<MoreInfo {...props} />).toJSON();
   expect(tree).toMatchSnapshot();

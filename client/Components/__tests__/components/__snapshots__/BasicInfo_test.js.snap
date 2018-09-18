@@ -38,9 +38,9 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      07:00 am
+      08:00 am
        - 
-      11:00 pm
+      08:00 pm
     </p>
     <p
       style={
@@ -149,6 +149,14 @@ exports[`renders correctly 1`] = `
   <div>
     <a
       onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "color": "#2e6d97",
+          "fontWeight": "bold",
+        }
+      }
     >
       Review Health
     </a>

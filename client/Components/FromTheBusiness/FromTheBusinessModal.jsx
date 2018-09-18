@@ -1,40 +1,64 @@
-import React from "react";
-import Modal from "react-modal";
-import styles from '../../styles.css.js';
+import React from 'react';
+import Modal from 'react-modal';
 import styled from 'styled-components';
+import styles from '../../styles.css.js';
 
+// --------------Modal Styling----------------------------------------------------------------------
 const Title = styled.p`
   font-weight: bold;
   color: red;
   font-size: 25;
   text-align: left;
   font-family: sans-serif;
-`
+`;
 const Button = styled.button`
   background-color: red;
   font-weight: bold;
   margin-top: 4px;
   color: white;
   text-align: center;
-  -webkit-border-radius: 30;
-  -moz-border-radius: 30;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
   border-radius: 4px;
-`
+`;
+const Flag = styled.img`
+  float: right;
+  height: 14;
+  width: 14;
+  padding: 5;
+  border: 1px solid grey;
+  border-radius: 3px;
 
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
+  &:hover {
+    background: #555;
+    border-style: inset;
+  }
+`;
+// --------------Modal Styling----------------------------------------------------------------------
+
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#restaurantInfoApp');
 
 class BusinessModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showModal: false,
-      linkHover: false
+      linkHover: false,
     };
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  setLinkHover() {
+    this.setState(prevState => ({
+      linkHover: !prevState.linkHover,
+    }));
   }
 
   handleOpenModal() {
     this.setState({
-      showModal: true
+      showModal: true,
     });
   }
 
@@ -42,33 +66,34 @@ class BusinessModal extends React.Component {
     this.setState({ showModal: false });
   }
 
-  setLinkHover (bool) {
-    this.setState(prevState => ({
-      linkHover: !prevState.linkHover
-    }));
-
-  }
   render() {
     return (
       <div>
-        <a 
-          style={this.state.linkHover ? Object.assign({textDecorationLine: 'underline'}, styles.reviewLinkStyling) : styles.reviewLinkStyling}
+        <Button
+          style={
+            this.state.linkHover
+              ? Object.assign({ textDecorationLine: 'underline' }, styles.editInfoStyling)
+              : styles.editInfoStyling
+          }
           onMouseEnter={() => this.setLinkHover(true)}
-          onMouseLeave={() => this.setLinkHover(false)} 
-          onClick={this.handleOpenModal.bind(this)}>Learn more about {this.props.restaurantName}
-        </a>
+          onMouseLeave={() => this.setLinkHover(false)}
+          onClick={this.handleOpenModal}
+        >
+          Learn more about
+          {' '}
+          {this.props.restaurantName}
+        </Button>
 
         <Modal
           style={styles.modalStyling}
           isOpen={this.state.showModal}
-          onRequestClose={this.handleCloseModal.bind(this)}
+          onRequestClose={this.handleCloseModal}
         >
-        <Title>From the business</Title>
-        <hr></hr>
-        <div>
-        {this.props.restaurantInfo}
-        </div>
-        <Button onClick={this.handleCloseModal.bind(this)}>Close</Button>
+          <Title>From the business</Title>
+          <hr />
+          <div>{this.props.restaurantInfo}</div>
+          <Button onClick={this.handleCloseModal}>Close</Button>
+          <Flag src="https://png.icons8.com/ios/50/666666/flag-filled.png" />
         </Modal>
       </div>
     );

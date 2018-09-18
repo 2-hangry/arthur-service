@@ -1,17 +1,18 @@
-import React from "react";
-import Modal from "react-modal";
-import styles from '../../styles.css.js';
+import React from 'react';
+import Modal from 'react-modal';
 import styled from 'styled-components';
+import styles from '../../styles.css.js';
 
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#restaurantInfoApp');
 
+// --------------Modal Styling----------------------------------------------------------------------
 const Title = styled.p`
   font-weight: bold;
   color: red;
   font-size: 25;
   text-align: left;
   font-family: sans-serif;
-`
+`;
 
 const Button = styled.button`
   background-color: red;
@@ -22,7 +23,8 @@ const Button = styled.button`
   -webkit-border-radius: 30;
   -moz-border-radius: 30;
   border-radius: 4px;
-`
+`;
+// --------------Modal Styling----------------------------------------------------------------------
 
 class ReviewHealth extends React.Component {
   constructor(props) {
@@ -30,54 +32,63 @@ class ReviewHealth extends React.Component {
     this.state = {
       showModal: false,
       ratingsComparator: {
-        1: "Avoid This Place Like The Plague",
+        1: 'Avoid This Place Like The Plague',
         2: "It's YOUR Stomach I Guess",
-        3: "Take A Chance, Columbus Did!",
+        3: 'Take A Chance, Columbus Did!',
         4: "Go!! Don't Forget To Instagram Like The Rest Of The Sheeple",
-        5: "I Bet This Place Paid For Elites To Rate Them!"
+        5: 'I Bet This Place Paid For Elites To Rate Them!',
       },
       rating: Math.floor(this.props.rating),
-      linkHover: false
+      linkHover: false,
     };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  handleOpenModal() {
-    this.setState({
-      showModal: true,
-      rating: Math.floor(this.props.rating)
-    });
+  setLinkHover() {
+    this.setState(prevState => ({
+      linkHover: !prevState.linkHover,
+    }));
   }
 
   handleCloseModal() {
     this.setState({ showModal: false });
   }
 
-  setLinkHover (bool) {
-    this.setState(prevState => ({
-      linkHover: !prevState.linkHover
-    }));
-
+  handleOpenModal() {
+    this.setState({
+      showModal: true,
+      rating: Math.floor(this.props.rating),
+    });
   }
+
   render() {
     return (
       <div>
-        <a 
-        style={this.state.linkHover ? Object.assign({textDecorationLine: 'underline'}, styles.reviewLinkStyling) : styles.reviewLinkStyling}
-        onMouseEnter={() => this.setLinkHover(true)}
-        onMouseLeave={() => this.setLinkHover(false)} 
-        onClick={this.handleOpenModal.bind(this)}>Review Health
-        </a>
+        <Button
+          style={
+            this.state.linkHover
+              ? Object.assign({ textDecorationLine: 'underline' }, styles.reviewLinkStyling)
+              : styles.reviewLinkStyling
+          }
+          onMouseEnter={() => this.setLinkHover(true)}
+          onMouseLeave={() => this.setLinkHover(false)}
+          onClick={this.handleOpenModal}
+        >
+          Review Health
+        </Button>
         <Modal
           style={styles.modalStyling}
           isOpen={this.state.showModal}
-          onRequestClose={this.handleCloseModal.bind(this)}
+          onRequestClose={this.handleCloseModal}
         >
-          <button onClick={this.handleCloseModal.bind(this)}>Close</button>
           <Title>Restauant Review Health</Title>
+          <hr />
           <div style={styles.fontBolded}>
             <p>{this.state.ratingsComparator[this.state.rating]}</p>
             <p>{this.props.rating}</p>
           </div>
+          <Button onClick={this.handleCloseModal}>Close</Button>
         </Modal>
       </div>
     );

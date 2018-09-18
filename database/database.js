@@ -93,7 +93,8 @@ let restaurantSchema = { 'id': {type: Number, unique: true},
     'Waiter Service': {type: Boolean},
     'Caters': {type: Boolean},
     'Gender Neutral Restroom': {type: Boolean}
-  }
+  },
+  'reports': 0
 };
 
 let restaurant = mongoose.model('restaurant', restaurantSchema);
