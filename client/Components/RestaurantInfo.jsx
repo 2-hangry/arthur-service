@@ -1,91 +1,79 @@
-import React from "react";
-import axios from "axios";
-import ReactDOM from "react-dom";
-import Hours from "./Hours.jsx";
-import MoreInfo from "./MoreInfo.jsx";
-import Search from "./Search.jsx";
-import BasicInfo from "./BasicInfo.jsx";
-import FromTheBusiness from "./FromTheBusiness.jsx";
-
-const fontStyle = {
-  fontSize: 14,
-  fontFamily: "sans-serif"
-};
-
-const basicBorder = {
-  borderColor: "#cacad0",
-  borderWidth: "thin",
-  borderStyle: "solid",
-  padding: 3,
-  maxWidth: 300,
-  borderRadius: 3
-};
+import React from 'react';
+import axios from 'axios';
+import Search from './Search';
+import BasicInfo from './BasicInformation/BasicInfo';
+import Hours from './HoursOfOperation/Hours';
+import MoreInfo from './MoreBusinessInformation/MoreInfo';
+import FromTheBusiness from './FromTheBusiness/FromTheBusiness';
+import styles from '../styles.css';
 
 class RestaurantInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       restaurant: null,
-      searchRequest: null
+      searchRequest: null,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.formSubmit = this.formSubmit.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({
-      searchRequest: e.target.value
+  componentDidMount() {
+    const context = this;
+    axios.get(`/restaurantInfo/${0}`).then((response) => {
+      if (response.data !== '') {
+        context.setState({
+          restaurant: response.data,
+        });
+      }
     });
   }
 
   formSubmit(e) {
     e.preventDefault();
+    const { searchRequest } = this.state;
     const context = this;
-    axios
-      .get(`/restaurantInfo/${this.state.searchRequest}`)
-      .then(function(response) {
-        if (response.data !== "") {
-          context.setState({
-            restaurant: response.data
-          });
-        }
-      });
+    axios.get(`/restaurantInfo/${searchRequest}`).then((response) => {
+      if (response.data !== '') {
+        context.setState({
+          restaurant: response.data,
+        });
+      }
+    });
+  }
+
+  handleChange(e) {
+    this.setState({
+      searchRequest: e.target.value,
+    });
   }
 
   render() {
-    if (this.state.restaurant === null) {
-      return (
-        <Search
-          handleChange={this.handleChange.bind(this)}
-          submit={this.formSubmit.bind(this)}
-        />
-      );
-    } else {
-      return (
-        <div style={fontStyle}>
-          <Search
-            handleChange={this.handleChange.bind(this)}
-            submit={this.formSubmit.bind(this)}
-          />
-          <div style={basicBorder}>
-            <BasicInfo
-              businessHours={this.state.restaurant.hours[0]}
-              price={this.state.restaurant.price}
-              rating={this.state.restaurant.rating}
-            />
-          </div>
-          <Hours
-            hours={
-              this.state.restaurant ? this.state.restaurant.hours[0] : null
-            }
-          />
-          <MoreInfo moreInfo={this.state.restaurant} />
-          <FromTheBusiness
-            fromBusiness={this.state.restaurant["From the Business"]}
+    const { restaurant } = this.state;
+    if (restaurant === null) {
+      return <Search handleChange={this.handleChange} submit={this.formSubmit} />;
+    }
+    return (
+      <div style={Object.assign({ float: 'right' }, styles.generalFontFormat)}>
+        <Search handleChange={this.handleChange} submit={this.formSubmit} />
+        <div style={styles.basicBorder}>
+          <BasicInfo
+            businessHours={restaurant.hours[0]}
+            price={restaurant.price}
+            rating={restaurant.rating}
           />
         </div>
-      );
-    }
+        <Hours hours={restaurant ? restaurant.hours[0] : null} />
+        <MoreInfo moreInfo={restaurant.more_info} />
+        <FromTheBusiness
+          fromBusiness={restaurant['From the Business']}
+          restaurantName={restaurant.name}
+        />
+        <a href="https://icons8.com">.</a>
+      </div>
+    );
   }
 }
 
-// ReactDOM.render(<RestaurantInfo />, document.getElementById("app"));
 export default RestaurantInfo;

@@ -2,100 +2,37 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  <h3
+  <p
     style={
       Object {
         "color": "red",
-        "fontSize": 14,
+        "fontWeight": "bold",
       }
     }
   >
     Hours
-  </h3>
+  </p>
   <table>
     <tbody>
       <tr
         style={
           Object {
             "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
+            "fontSize": 14,
           }
         }
       >
-        <th>
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
           Mon
         </th>
         <td>
           08:00 am - 08:00 pm
-        </td>
-        <p />
-      </tr>
-      <tr
-        style={
-          Object {
-            "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
-          }
-        }
-      >
-        <th>
-          Tue
-        </th>
-        <td>
-          07:00 am - 09:00 pm
-        </td>
-        <p />
-      </tr>
-      <tr
-        style={
-          Object {
-            "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
-          }
-        }
-      >
-        <th>
-          Wed
-        </th>
-        <td>
-          07:00 am - 11:00 pm
-        </td>
-        <p />
-      </tr>
-      <tr
-        style={
-          Object {
-            "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
-          }
-        }
-      >
-        <th>
-          Thu
-        </th>
-        <td>
-          03:00 am - 04:00 pm
-        </td>
-        <p />
-      </tr>
-      <tr
-        style={
-          Object {
-            "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
-          }
-        }
-      >
-        <th>
-          Fri
-        </th>
-        <td>
-          07:00 am - 09:00 pm
         </td>
         <p
           style={
@@ -112,12 +49,105 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
+            "fontSize": 14,
           }
         }
       >
-        <th>
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
+          Tue
+        </th>
+        <td>
+          07:00 am - 09:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": 14,
+          }
+        }
+      >
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
+          Wed
+        </th>
+        <td>
+          07:00 am - 11:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": 14,
+          }
+        }
+      >
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
+          Thu
+        </th>
+        <td>
+          03:00 am - 04:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": 14,
+          }
+        }
+      >
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
+          Fri
+        </th>
+        <td>
+          07:00 am - 09:00 pm
+        </td>
+        <p />
+      </tr>
+      <tr
+        style={
+          Object {
+            "fontFamily": "sans-serif",
+            "fontSize": 14,
+          }
+        }
+      >
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
           Sat
         </th>
         <td>
@@ -129,12 +159,17 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "fontFamily": "sans-serif",
-            "fontSize": "14px",
-            "textAlign": "left",
+            "fontSize": 14,
           }
         }
       >
-        <th>
+        <th
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
           Sun
         </th>
         <td>
@@ -144,5 +179,31 @@ exports[`renders correctly 1`] = `
       </tr>
     </tbody>
   </table>
+  <span>
+    <img
+      src="https://png.icons8.com/ios/50/2e6d97/edit.png"
+      style={
+        Object {
+          "height": 15,
+          "marginTop": 4,
+          "mode": "fit",
+          "width": 15,
+        }
+      }
+    />
+    <a
+      href="https://www.yelp.com"
+      style={
+        Object {
+          "color": "#2e6d97",
+          "fontSize": 13,
+          "marginLeft": 4,
+          "marginTop": 4,
+        }
+      }
+    >
+      Edit business info
+    </a>
+  </span>
 </div>
 `;

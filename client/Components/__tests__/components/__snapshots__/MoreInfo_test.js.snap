@@ -2,16 +2,16 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  <h3
+  <p
     style={
       Object {
         "color": "red",
-        "fontSize": 14,
+        "fontWeight": "bold",
       }
     }
   >
-    More business info
-  </h3>
+    More Business Info
+  </p>
   <div>
     <div
       style={

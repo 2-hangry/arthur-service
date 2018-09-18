@@ -1,23 +1,26 @@
 module.exports = {
-  entry: __dirname + "/client/index.jsx",
+  entry: `${__dirname}/client/index.jsx`,
   module: {
     rules: [
       {
         test: [/\.jsx$/],
+        resolve: {
+          extensions: ['.css', '*', '.js', '.jsx'],
+        },
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         query: {
-          presets: ["@babel/preset-env", "@babel/preset-react"]
-        }
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
-      }
-    ]
+        use: ['file-loader'],
+      },
+    ],
   },
   output: {
-    filename: "bundle.js",
-    path: __dirname + "/client/public"
-  }
+    filename: 'bundle.js',
+    path: `${__dirname}/client/public`,
+  },
 };
