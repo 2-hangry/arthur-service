@@ -21,7 +21,14 @@ class RestaurantInfo extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`/api${window.location.pathname}restaurantInfo`).then((response) => {
+    let validator = window.location.pathname;
+    if (!(Number(validator.slice(12, -1)) < 99 && Number(validator.slice(12, -1)) > -1)) {
+      console.log(' making change');
+      validator = '/businesses/0/';
+    }
+    // console.log(validator, ' the pathname');
+
+    axios.get(`/api${validator}restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
@@ -52,12 +59,11 @@ class RestaurantInfo extends React.Component {
   render() {
     const { restaurant } = this.state;
     if (restaurant === null) {
-      console.log(restaurant, ' the rest');
-      return <Search handleChange={this.handleChange} submit={this.formSubmit} />;
+      return <div>Loading...</div>;
     }
     return (
       <div style={Object.assign({ float: 'right' }, styles.generalFontFormat)}>
-        <Search handleChange={this.handleChange} submit={this.formSubmit} />
+        {/* <div><Search handleChange={this.handleChange} submit={this.formSubmit} /></div> */}
         <div style={styles.basicBorder}>
           <BasicInfo
             businessHours={restaurant.hours[0]}
