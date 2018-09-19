@@ -21,7 +21,7 @@ class RestaurantInfo extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`/restaurantInfo/${0}`).then((response) => {
+    axios.get(`/api${window.location.pathname}restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
@@ -34,7 +34,7 @@ class RestaurantInfo extends React.Component {
     e.preventDefault();
     const { searchRequest } = this.state;
     const context = this;
-    axios.get(`/restaurantInfo/${searchRequest}`).then((response) => {
+    axios.get(`/${searchRequest}/restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
