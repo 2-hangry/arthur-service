@@ -28,7 +28,7 @@ const Button = styled.button`
 const Link = styled.p`
   color: #2e6d97;
   max-width: 250px;
-  font-size: 13px;
+  font-size: 14px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

@@ -1,10 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import BasicInfo from './BasicInformation/BasicInfo';
 import Hours from './HoursOfOperation/Hours';
 import MoreInfo from './MoreBusinessInformation/MoreInfo';
 import FromTheBusiness from './FromTheBusiness/FromTheBusiness';
 import styles from '../styles.css';
+
+const Container = styled.div`
+  font-size: 14px;
+  font-family: sans-serif;
+  float: right;
+`;
 
 class RestaurantInfo extends React.Component {
   constructor(props) {
@@ -62,7 +69,7 @@ class RestaurantInfo extends React.Component {
       return <div>Loading...</div>;
     }
     return (
-      <div style={Object.assign({ float: 'right' }, styles.generalFontFormat)}>
+      <Container>
         <div style={styles.basicBorder}>
           <BasicInfo
             businessHours={restaurant.hours[0]}
@@ -77,7 +84,7 @@ class RestaurantInfo extends React.Component {
           restaurantName={restaurant.name}
         />
         <a href="https://icons8.com">.</a>
-      </div>
+      </Container>
     );
   }
 }
