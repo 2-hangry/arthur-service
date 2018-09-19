@@ -24,6 +24,18 @@ const Button = styled.button`
   -moz-border-radius: 30;
   border-radius: 4px;
 `;
+
+const Link = styled.p`
+  color: #2e6d97;
+  max-width: 250px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 // --------------Modal Styling----------------------------------------------------------------------
 
 class ReviewHealth extends React.Component {
@@ -40,16 +52,9 @@ class ReviewHealth extends React.Component {
         5: 'I Bet This Place Paid For Elites To Rate Them!',
       },
       rating: Math.floor(rating),
-      linkHover: false,
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
-  setLinkHover() {
-    this.setState(prevState => ({
-      linkHover: !prevState.linkHover,
-    }));
   }
 
   handleCloseModal() {
@@ -66,23 +71,10 @@ class ReviewHealth extends React.Component {
 
   render() {
     const { propsRating } = this.props;
-    const {
-      showModal, linkHover, ratingsComparator, rating,
-    } = this.state;
+    const { showModal, ratingsComparator, rating } = this.state;
     return (
       <div>
-        <Button
-          style={
-            linkHover
-              ? Object.assign({ textDecorationLine: 'underline' }, styles.reviewLinkStyling)
-              : styles.reviewLinkStyling
-          }
-          onMouseEnter={() => this.setLinkHover(true)}
-          onMouseLeave={() => this.setLinkHover(false)}
-          onClick={this.handleOpenModal}
-        >
-          Review Health
-        </Button>
+        <Link onClick={this.handleOpenModal}>Review Health</Link>
         <Modal
           style={styles.modalStyling}
           isOpen={showModal}

@@ -1,11 +1,17 @@
 import React from 'react';
 import axios from 'axios';
-import Search from './Search';
+import styled from 'styled-components';
 import BasicInfo from './BasicInformation/BasicInfo';
 import Hours from './HoursOfOperation/Hours';
 import MoreInfo from './MoreBusinessInformation/MoreInfo';
 import FromTheBusiness from './FromTheBusiness/FromTheBusiness';
 import styles from '../styles.css';
+
+const Container = styled.div`
+  font-size: 14px;
+  font-family: sans-serif;
+  float: right;
+`;
 
 class RestaurantInfo extends React.Component {
   constructor(props) {
@@ -21,8 +27,15 @@ class RestaurantInfo extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`http://127.0.0.1:3002/restaurantInfo/${0}`).then((response) => {
-      console.log(response, ' the response i guess');
+
+    // set to only handle a total of 100 restaurants
+    let validator = window.location.pathname;
+    if (!(Number(validator.slice(12, -1)) < 99 && Number(validator.slice(12, -1)) > -1)) {
+      console.log(' making change');
+      validator = '/businesses/0/';
+    }
+
+    axios.get(`/api${validator}restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
@@ -35,7 +48,7 @@ class RestaurantInfo extends React.Component {
     e.preventDefault();
     const { searchRequest } = this.state;
     const context = this;
-    axios.get(`http://127.0.0.1:3002/restaurantInfo/${searchRequest}`).then((response) => {
+    axios.get(`/${searchRequest}/restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
@@ -53,12 +66,10 @@ class RestaurantInfo extends React.Component {
   render() {
     const { restaurant } = this.state;
     if (restaurant === null) {
-      console.log(restaurant, ' the rest');
-      return <Search handleChange={this.handleChange} submit={this.formSubmit} />;
+      return <div>Loading...</div>;
     }
     return (
-      <div style={Object.assign({ float: 'right' }, styles.generalFontFormat)}>
-        <Search handleChange={this.handleChange} submit={this.formSubmit} />
+      <Container>
         <div style={styles.basicBorder}>
           <BasicInfo
             businessHours={restaurant.hours[0]}
@@ -73,7 +84,7 @@ class RestaurantInfo extends React.Component {
           restaurantName={restaurant.name}
         />
         <a href="https://icons8.com">.</a>
-      </div>
+      </Container>
     );
   }
 }

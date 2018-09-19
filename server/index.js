@@ -9,7 +9,7 @@ const port = process.env.PORT || 3002;
 app.use(express.static(`${__dirname}/../client/public`));
 app.use(cors());
 
-app.get('/restaurantInfo/:id', bodyParser.json(), (req, res) => {
+app.get('/:id/restaurantInfo', bodyParser.json(), (req, res) => {
   const restaurantID = Number(req.params.id);
   db.findRestaurant(restaurantID, (err, restaurantInfo) => {
     if (err) {
@@ -21,6 +21,5 @@ app.get('/restaurantInfo/:id', bodyParser.json(), (req, res) => {
 });
 
 app.listen(port, () => {
-  // console.log(__dirname, " the directory name");
   console.log(' we listening for things');
 });

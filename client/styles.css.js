@@ -49,7 +49,7 @@ const openNowStyling = {
 
 const reviewLinkStyling = {
   fontWeight: 'bold',
-  color: '#2e6d97',
+  color: 'white',
 };
 
 const textMargin = {
