@@ -34,6 +34,19 @@ const Flag = styled.img`
     border-style: inset;
   }
 `;
+
+const Link = styled.p`
+  color: #2e6d97;
+  max-width: 250px;
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 // --------------Modal Styling----------------------------------------------------------------------
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#restaurantInfoApp');
@@ -43,17 +56,10 @@ class BusinessModal extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      linkHover: false,
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
-  setLinkHover() {
-    this.setState(prevState => ({
-      linkHover: !prevState.linkHover,
-    }));
   }
 
   handleOpenModal() {
@@ -67,24 +73,15 @@ class BusinessModal extends React.Component {
   }
 
   render() {
-    const { linkHover, showModal } = this.state;
+    const { showModal } = this.state;
     const { restaurantInfo, restaurantName } = this.props;
     return (
       <div>
-        <Button
-          style={
-            linkHover
-              ? Object.assign({ textDecorationLine: 'underline' }, styles.editInfoStyling)
-              : styles.editInfoStyling
-          }
-          onMouseEnter={() => this.setLinkHover(true)}
-          onMouseLeave={() => this.setLinkHover(false)}
-          onClick={this.handleOpenModal}
-        >
+        <Link onClick={this.handleOpenModal}>
           Learn more about
-          {' '}
+          {'  '}
           {restaurantName}
-        </Button>
+        </Link>
 
         <Modal
           style={styles.modalStyling}

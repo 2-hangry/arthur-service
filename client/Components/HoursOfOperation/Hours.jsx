@@ -4,16 +4,12 @@ import styles from '../../styles.css';
 
 const Hours = (props) => {
   const { hours } = props;
-
+  const week = hours.open.map(day => <DailyHours key={day.day} day={day} />);
   return (
     <div>
       <p style={styles.sectionTitle}>Hours</p>
       <table>
-        <tbody>
-          {hours.open.map(day => (
-            <DailyHours day={day} />
-          ))}
-        </tbody>
+        <tbody>{week}</tbody>
       </table>
       <span>
         <img

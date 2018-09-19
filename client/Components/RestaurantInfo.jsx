@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Search from './Search';
 import BasicInfo from './BasicInformation/BasicInfo';
 import Hours from './HoursOfOperation/Hours';
 import MoreInfo from './MoreBusinessInformation/MoreInfo';
@@ -21,12 +20,13 @@ class RestaurantInfo extends React.Component {
 
   componentDidMount() {
     const context = this;
+
+    // set to only handle a total of 100 restaurants
     let validator = window.location.pathname;
     if (!(Number(validator.slice(12, -1)) < 99 && Number(validator.slice(12, -1)) > -1)) {
       console.log(' making change');
       validator = '/businesses/0/';
     }
-    // console.log(validator, ' the pathname');
 
     axios.get(`/api${validator}restaurantInfo`).then((response) => {
       if (response.data !== '') {
@@ -63,7 +63,6 @@ class RestaurantInfo extends React.Component {
     }
     return (
       <div style={Object.assign({ float: 'right' }, styles.generalFontFormat)}>
-        {/* <div><Search handleChange={this.handleChange} submit={this.formSubmit} /></div> */}
         <div style={styles.basicBorder}>
           <BasicInfo
             businessHours={restaurant.hours[0]}
