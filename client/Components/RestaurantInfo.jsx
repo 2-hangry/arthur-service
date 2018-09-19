@@ -21,8 +21,7 @@ class RestaurantInfo extends React.Component {
 
   componentDidMount() {
     const context = this;
-    axios.get(`http://127.0.0.1:3002/restaurantInfo/${0}`).then((response) => {
-      console.log(response, ' the response i guess');
+    axios.get(`/restaurantInfo/${0}`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
@@ -35,7 +34,7 @@ class RestaurantInfo extends React.Component {
     e.preventDefault();
     const { searchRequest } = this.state;
     const context = this;
-    axios.get(`http://127.0.0.1:3002/restaurantInfo/${searchRequest}`).then((response) => {
+    axios.get(`/restaurantInfo/${searchRequest}`).then((response) => {
       if (response.data !== '') {
         context.setState({
           restaurant: response.data,
