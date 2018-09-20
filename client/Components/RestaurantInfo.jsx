@@ -10,6 +10,7 @@ import styles from '../styles.css';
 const Container = styled.div`
   font-size: 14px;
   font-family: sans-serif;
+  width 300px;
   float: right;
 `;
 
@@ -18,11 +19,7 @@ class RestaurantInfo extends React.Component {
     super(props);
     this.state = {
       restaurant: null,
-      searchRequest: null,
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.formSubmit = this.formSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -41,25 +38,6 @@ class RestaurantInfo extends React.Component {
           restaurant: response.data,
         });
       }
-    });
-  }
-
-  formSubmit(e) {
-    e.preventDefault();
-    const { searchRequest } = this.state;
-    const context = this;
-    axios.get(`/${searchRequest}/restaurantInfo`).then((response) => {
-      if (response.data !== '') {
-        context.setState({
-          restaurant: response.data,
-        });
-      }
-    });
-  }
-
-  handleChange(e) {
-    this.setState({
-      searchRequest: e.target.value,
     });
   }
 
