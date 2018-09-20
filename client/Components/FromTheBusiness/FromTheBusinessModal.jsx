@@ -23,10 +23,11 @@ const Button = styled.button`
 `;
 const Flag = styled.img`
   float: right;
-  height: 14;
-  width: 14;
+  height: 14px;
+  width: 14px;
   padding: 5;
   border: 1px solid grey;
+  border-spacing: 1px;
   border-radius: 3px;
 
   &:hover {

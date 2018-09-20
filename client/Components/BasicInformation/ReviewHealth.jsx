@@ -70,7 +70,7 @@ class ReviewHealth extends React.Component {
   }
 
   render() {
-    const { propsRating } = this.props;
+    const propsRating = this.props.rating;
     const { showModal, ratingsComparator, rating } = this.state;
     return (
       <div>

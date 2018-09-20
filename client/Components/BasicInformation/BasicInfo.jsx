@@ -34,6 +34,7 @@ const BasicInfo = (props) => {
           {start}
           {' '}
 -
+          {'  '}
           {end}
         </p>
         {moment(current, 'hh:mm a').isBetween(moment(start, 'hh:mm a'), moment(end, 'hh:mm a')) ? (
