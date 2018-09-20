@@ -55,12 +55,14 @@ class RestaurantInfo extends React.Component {
             rating={restaurant.rating}
           />
         </div>
-        <Hours hours={restaurant ? restaurant.hours[0] : null} />
-        <MoreInfo moreInfo={restaurant.more_info} />
-        <FromTheBusiness
-          fromBusiness={restaurant['From the Business']}
-          restaurantName={restaurant.name}
-        />
+        <div style={{ borderLeft: 1, solid: 'black', height: 500 }}>
+          <Hours hours={restaurant ? restaurant.hours[0] : null} />
+          <MoreInfo moreInfo={restaurant.more_info} />
+          <FromTheBusiness
+            fromBusiness={restaurant['From the Business']}
+            restaurantName={restaurant.name}
+          />
+        </div>
         <a href="https://icons8.com">.</a>
       </Container>
     );
