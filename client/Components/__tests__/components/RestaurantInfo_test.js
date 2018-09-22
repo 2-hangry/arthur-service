@@ -5,9 +5,9 @@ import RestaurantInfo from '../../RestaurantInfo.jsx';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('restaurant Suite', function() {
+describe('restaurant Suite', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<RestaurantInfo />)
+    const wrapper = shallow(<RestaurantInfo />);
     expect(wrapper.exists()).toEqual(true);
   });
 });

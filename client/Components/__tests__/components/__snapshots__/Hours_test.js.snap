@@ -34,16 +34,7 @@ exports[`renders correctly 1`] = `
         <td>
           08:00 am - 08:00 pm
         </td>
-        <p
-          style={
-            Object {
-              "color": "green",
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Open Now
-        </p>
+        <td />
       </tr>
       <tr
         style={
@@ -65,7 +56,7 @@ exports[`renders correctly 1`] = `
         <td>
           07:00 am - 09:00 pm
         </td>
-        <p />
+        <td />
       </tr>
       <tr
         style={
@@ -87,7 +78,7 @@ exports[`renders correctly 1`] = `
         <td>
           07:00 am - 11:00 pm
         </td>
-        <p />
+        <td />
       </tr>
       <tr
         style={
@@ -109,7 +100,7 @@ exports[`renders correctly 1`] = `
         <td>
           03:00 am - 04:00 pm
         </td>
-        <p />
+        <td />
       </tr>
       <tr
         style={
@@ -131,7 +122,7 @@ exports[`renders correctly 1`] = `
         <td>
           07:00 am - 09:00 pm
         </td>
-        <p />
+        <td />
       </tr>
       <tr
         style={
@@ -153,7 +144,16 @@ exports[`renders correctly 1`] = `
         <td>
           07:00 am - 11:00 pm
         </td>
-        <p />
+        <td
+          style={
+            Object {
+              "color": "green",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Open Now
+        </td>
       </tr>
       <tr
         style={
@@ -175,12 +175,13 @@ exports[`renders correctly 1`] = `
         <td>
           03:00 am - 04:00 pm
         </td>
-        <p />
+        <td />
       </tr>
     </tbody>
   </table>
   <span>
     <img
+      alt="Pencil"
       src="https://png.icons8.com/ios/50/2e6d97/edit.png"
       style={
         Object {
