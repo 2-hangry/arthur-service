@@ -31,7 +31,7 @@ class RestaurantInfo extends React.Component {
       console.log(' making change');
       validator = '/businesses/0/';
     }
-
+    console.log(`/api${validator}restaurantInfo`, ' template deloy');
     axios.get(`/api${validator}restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({

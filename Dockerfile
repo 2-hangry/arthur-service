@@ -1,5 +1,5 @@
 FROM node:8
-WORKDIR /home/arthur/Desktop/dockerApp
+WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
