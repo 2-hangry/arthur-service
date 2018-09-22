@@ -26,12 +26,12 @@ class RestaurantInfo extends React.Component {
     const context = this;
 
     // set to only handle a total of 100 restaurants
-    let validator = window.location.pathname;
+    let validator = window.location.pathname || '/businesses/0/';
     if (!(Number(validator.slice(12, -1)) < 99 && Number(validator.slice(12, -1)) > -1)) {
       console.log(' making change');
       validator = '/businesses/0/';
     }
-    console.log(`/api${validator}restaurantInfo`, ' template deloy');
+    console.log(`/api${validator}restaurantInfo`, ' template deloy', validator);
     axios.get(`/api${validator}restaurantInfo`).then((response) => {
       if (response.data !== '') {
         context.setState({
