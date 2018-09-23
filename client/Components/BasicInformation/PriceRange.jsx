@@ -12,19 +12,13 @@ const PriceRange = (props) => {
   const { price } = props;
   const green = '27ae60';
   const colorArr = ['cccccc', 'cccccc', 'cccccc', 'cccccc'];
-  let dollarKey = 0;
   for (let i = 0; i < price.length; i += 1) {
     colorArr[i] = green;
   }
-  const dollars = colorArr.map((dollar) => {
+  const dollars = colorArr.map((dollar, index) => {
     const dollarString = `https://png.icons8.com/metro/50/${dollar}/us-dollar.png`;
     return (
-      <img
-        key={dollarKey++}
-        src={dollarString}
-        alt="Dollar Signs"
-        style={styles.dollarSignStyling}
-      />
+      <img key={index} src={dollarString} alt="Dollar Signs" style={styles.dollarSignStyling} />
     );
   });
 

@@ -8,11 +8,11 @@ const router = express.Router();
 const app = express();
 const port = process.env.PORT || 3002;
 
-app.use(express.static(`${__dirname}/../client/public`));
+app.use('/restaurantInfo-service/:id', express.static(`${__dirname}/../client/public`));
 app.use('/api/businesses/', router);
 app.use(cors());
 
-app.get('/:id/restaurantInfo*', bodyParser.json(), (req, res) => {
+app.get('*/:id/restaurantInfo*', bodyParser.json(), (req, res) => {
   const restaurantID = Number(req.params.id);
   db.findRestaurant(restaurantID, (err, restaurantInfo) => {
     if (err) {
