@@ -57,6 +57,7 @@ class BusinessModal extends React.Component {
     super(props);
     this.state = {
       showModal: false,
+      flagged: false,
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);

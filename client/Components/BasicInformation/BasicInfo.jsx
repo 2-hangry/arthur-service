@@ -7,16 +7,15 @@ import styles from '../../styles.css';
 const moment = require('moment');
 
 const BasicInfo = (props) => {
-  // const BasicInfo = ({ businessHours, price, rating }) => {
   const { businessHours, price, rating } = props;
   let today = moment().format('d') - 1;
-  console.log(today, ' the current day');
+  // console.log(today, ' the current day');
   if (today < 0) {
     // accounts for Sunday
     today = 6;
   }
   const time = businessHours.open[today];
-  console.log(today, ' day switched ', time, ' time variable set');
+  // console.log(today, ' day switched ', time, ' time variable set');
   const start = moment(Math.floor(time.start) / 100, 'HH').format('hh:mm a');
   const end = moment(Math.floor(time.end) / 100, 'HH').format('hh:mm a');
   const current = moment().format('hh:mm a');

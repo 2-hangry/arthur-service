@@ -21,13 +21,17 @@ const DailyHours = (props) => {
   const end = moment(Math.floor(day.end) / 100, 'HH').format('hh:mm a');
   const current = moment().format('hh:mm a');
   const hours = `${start} - ${end}`;
-
+  let today = moment().format('d') - 1;
+  if (today < 0) {
+    // accounts for Sunday
+    today = 6;
+  }
   return (
     <tr style={styles.generalFontFormat}>
       <th style={styles.alignDay}>{Day}</th>
       <td>{hours}</td>
       {moment(current, 'hh:mm a').isBetween(moment(start, 'hh:mm a'), moment(end, 'hh:mm a'))
-      && day.day === Number(moment().format('d')) - 1 ? (
+      && day.day === today ? (
         <td style={styles.openNowStyling}>Open Now</td>
         ) : (
           <td />
